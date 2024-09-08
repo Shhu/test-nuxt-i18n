@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   future: { compatibilityVersion: 4 },
   experimental: { typedPages: true },
-  modules: ['@nuxtjs/i18n', '@nuxtjs/tailwindcss', '@nuxt/eslint'],
+  modules: ['@nuxtjs/i18n', '@nuxtjs/tailwindcss', '@nuxt/eslint', '@nuxt/icon'],
 
   eslint: {
     config: {

@@ -5,7 +5,7 @@ const route = useRoute()
 </script>
 
 <template>
-  <div>
+  <div class="flex h-screen flex-col">
     <header class="bg-slate-700 text-slate-400 p-2 space-x-4 text-center">
       <NuxtLink
         :to="localePath('/')"
@@ -30,6 +30,16 @@ const route = useRoute()
       >
         {{ $t('custom') }}
       </NuxtLink>
+      <NuxtLink
+        :to="{
+          name: `test-menu___${locale as 'en'}`,
+        }"
+        :class="{
+          'font-semibold text-slate-50': `test-menu___${locale as 'en'}` === route.name,
+        }"
+      >
+        Menu
+      </NuxtLink>
       <span>|</span>
       <button
         v-for="availableLocale in availableLocales"
@@ -42,6 +52,8 @@ const route = useRoute()
       </button>
     </header>
 
-    <NuxtPage />
+    <div class="overflow-y-auto flex-grow">
+      <NuxtPage />
+    </div>
   </div>
 </template>
