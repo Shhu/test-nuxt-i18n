@@ -5,7 +5,7 @@ interface Menu {
   children: Menu[]
 }
 
-const { parentId } = defineProps<{
+defineProps<{
   menus: Menu[]
   selected: number[]
   parentId?: number
@@ -15,11 +15,6 @@ const emit = defineEmits<{
   select: [number]
   unselect: [number]
 }>()
-
-function select(id: number) {
-  emit('select', id)
-  if (parentId) emit('unselect', parentId)
-}
 </script>
 
 <template>
@@ -31,7 +26,7 @@ function select(id: number) {
     <button
       class="hover:bg-slate-200 duration-300 p-1 px-2 rounded-lg w-full text-left"
       :class="{ 'text-orange-500 font-semibold': selected.includes(menu.id) }"
-      @click="selected.includes(menu.id) ? emit('unselect', menu.id) : select(menu.id)"
+      @click="selected.includes(menu.id) ? emit('unselect', menu.id) : emit('select', menu.id)"
     >
       {{ menu.title_plural }}
     </button>
