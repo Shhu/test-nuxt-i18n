@@ -1,0 +1,36 @@
+<script setup lang="ts">
+const { locale, setLocale, availableLocales } = useI18n()
+const localePath = useLocalePath()
+const route = useRoute()
+</script>
+
+<template>
+  <div>
+    <header class="bg-slate-700 text-slate-400 p-2 space-x-4 text-center">
+      <NuxtLink
+        :to="localePath('/')"
+        :class="{ 'font-semibold text-slate-50': localePath('/') === route.path }"
+      >
+        {{ $t('Home') }}
+      </NuxtLink>
+      <NuxtLink
+        :to="localePath('contact')"
+        :class="{ 'font-semibold text-slate-50': localePath('contact') === route.path }"
+      >
+        {{ $t('Contact') }}
+      </NuxtLink>
+      <span>|</span>
+      <button
+        v-for="availableLocale in availableLocales"
+        :key="availableLocale"
+        :class="{ 'font-semibold text-slate-50': locale === availableLocale }"
+        class="uppercase"
+        @click="setLocale(availableLocale)"
+      >
+        {{ availableLocale }}
+      </button>
+    </header>
+
+    <NuxtPage />
+  </div>
+</template>
