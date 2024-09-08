@@ -19,6 +19,17 @@ const route = useRoute()
       >
         {{ $t('contact') }}
       </NuxtLink>
+      <NuxtLink
+        :to="{
+          name: `category-subCategory-slug___${locale as 'en'}`,
+          params: { category: 'minecraft', subCategory: 'plugins', slug: $t('best-plugins-ever') },
+        }"
+        :class="{
+          'font-semibold text-slate-50': `category-subCategory-slug___${locale as 'en'}` === route.name,
+        }"
+      >
+        {{ $t('custom') }}
+      </NuxtLink>
       <span>|</span>
       <button
         v-for="availableLocale in availableLocales"
