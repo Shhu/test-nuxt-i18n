@@ -11,13 +11,13 @@ const route = useRoute()
         :to="localePath('/')"
         :class="{ 'font-semibold text-slate-50': localePath('/') === route.path }"
       >
-        {{ $t('Home') }}
+        {{ $t('home') }}
       </NuxtLink>
       <NuxtLink
         :to="localePath('contact')"
         :class="{ 'font-semibold text-slate-50': localePath('contact') === route.path }"
       >
-        {{ $t('Contact') }}
+        {{ $t('contact') }}
       </NuxtLink>
       <span>|</span>
       <button
