@@ -6,10 +6,10 @@ const { data: search } = useFetch(`/api/search`, { query: { query: selected } })
 </script>
 
 <template>
-  <div class="mx-auto max-w-5xl flex">
+  <div class="mx-auto max-w-5xl flex w-full">
     <ol
       v-if="menus"
-      class="my-8 w-64 rounded-lg overflow-hidden border-4 border-white shadow-lg"
+      class="my-8 w-64 rounded-lg overflow-y-auto border-4 border-white shadow-lg"
     >
       <MenuItem
         :menus="menus"
@@ -18,7 +18,7 @@ const { data: search } = useFetch(`/api/search`, { query: { query: selected } })
         @unselect="id => selected = selected.filter(s => s !== id)"
       />
     </ol>
-    <div class="flex-grow my-8 ml-8 border-4 border-white shadow-lg rounded-lg bg-slate-100 p-4">
+    <div class="flex-grow my-8 ml-8 border-4 border-white shadow-lg rounded-lg bg-slate-100 p-4 overflow-y-auto">
       {{ search }}
     </div>
   </div>

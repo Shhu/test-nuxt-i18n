@@ -52,7 +52,7 @@ const route = useRoute()
       </button>
     </header>
 
-    <div class="overflow-y-auto flex-grow">
+    <div class="overflow-hidden flex-grow flex">
       <NuxtPage />
     </div>
   </div>
